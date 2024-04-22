@@ -8,26 +8,26 @@ export const fashion_testi_data = [
   {
     id:1,
     review:4,
-    desc:'“ How you use the city or town name is up to you. All results may be freely used in any work.”',
+    desc:'“ 87% des maladies métaboliques sont dues à l’Acidos.  AlphaMéta a changé ma vie, Juste fantastique!”',
     user:user_2,
-    name:'Theodore Handle',
-    designation:'CO Founder'
+    name:'Issan Ngom',
+    designation:'Utilisateur de AlphaMeta'
   },
   {
     id:2,
     review:5,
-    desc:'“Very happy with our choice to take our daughter to Brave care. The entire team was great! Thank you!”',
+    desc:"“J'avais très souvent des insomnies mais depuis que j'utilise iSmartS3, je dors mieux et les effets sur mon bien être se font ressentir. Merci à vous pour ces produits”",
     user:user_3,
-    name:'John Smith',
-    designation:'UI/UX Designer'
+    name:'Alice',
+    designation:'Depuis Kinshasa'
   },
   {
     id:3,
     review:3,
-    desc:'“Thanks for all your efforts and teamwork over the last several months!  Thank you so much”',
+    desc:'“Des produits de qualité, qui ont vraiment améliorer le quotidien de ma famille, Merci à vous”',
     user:user_4,
     name:'Salim Rana',
-    designation:'Web Developer'
+    designation:'Depuis Douala'
   },
 ]
 

@@ -99,7 +99,7 @@ const     ProductItem = ({ product, prdCenter = false,primary_style=false }) => 
       </div>
       <div className="tp-product-content-3">
         <div className="tp-product-tag-3">
-          <span>{tags[1]}</span>
+          <span>{tags.map(tag => tag + " " )}</span>
         </div>
         <h3 className="tp-product-title-3">
           <Link href={`/product-details/${_id}`}>{title}</Link>

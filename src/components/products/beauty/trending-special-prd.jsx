@@ -1,9 +1,9 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, EffectFade } from 'swiper';
+import { Pagination, Navigation, EffectFade, Manipulation } from 'swiper';
 import Image from 'next/image';
 // internal
-import special_thumb from '@assets/img/product/special/big/special-big-1.jpg';
+import special_thumb from '@assets/img/slider/3/slider-01-v2.jpg';
 import { ArrowNextSm, ArrowPrevSm, PlusTwo } from '@/svg';
 import { useGetProductTypeQuery } from '@/redux/features/productApi';
 import ErrorMsg from '@/components/common/error-msg';
@@ -27,7 +27,7 @@ const sliderSetting = {
 
 const TrendingSpecialPrd = () => {
   const { data: products, isError, isLoading } =
-    useGetProductTypeQuery({ type: 'beauty', query: `new=true` });
+    useGetProductTypeQuery({ type: 'cosmetics', query: `new=true` });
   // decide what to render
   let content = null;
 
@@ -42,8 +42,20 @@ const TrendingSpecialPrd = () => {
   if (!isLoading && !isError && products?.data?.length === 0) {
     content = <ErrorMsg msg="No Products found!" />;
   }
+  let selectedProduct = {
+    additionalInformation: [{key: "Naturel", "value": "100% Naturel"}]
+  }
   if (!isLoading && !isError && products?.data?.length > 0) {
-    const product_items = products.data.slice(0, 7);
+    //const product_items = products.data.slice(0, 7);
+    /**
+     * Pseudo random
+     */
+    let index = Math.round(Math.random() * products.data.length) + 1;
+    index = index >= products.data.length ? (products.data.length - 1) : index
+    selectedProduct = products.data[index];
+    //console.log("selectedProducts: ", selectedProducts);
+    const product_items = Array(products.data[index]);
+
     content = (
       <Swiper {...sliderSetting} modules={[Pagination,Navigation,EffectFade]} className="tp-special-slider-active swiper-container">
         {product_items.map((item) => (
@@ -56,7 +68,7 @@ const TrendingSpecialPrd = () => {
   }
   return (
     <>
-      <section className="tp-special-area fix">
+    <section style={{marginTop: 100}} className="tp-special-area fix">
         <div className="container">
           <div className="row gx-2">
             <div className="col-xl-5 col-md-6">
@@ -68,11 +80,11 @@ const TrendingSpecialPrd = () => {
                       <PlusTwo />
                     </span>
                     <div className="tp-special-hotspot-content">
-                      <h3 className="tp-special-hotspot-title">Skincare Product</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur.</p>
+                      <h3 className="tp-special-hotspot-title">{selectedProduct.additionalInformation[0]?.key}</h3>
+                      <p>{selectedProduct.additionalInformation[0]?.value}</p>
                     </div>
                   </div>
-                  <div className="tp-special-hotspot-item tp-special-hotspot-2">
+                  {/* <div className="tp-special-hotspot-item tp-special-hotspot-2">
                     <span className="tp-hotspot tp-pulse-border ">
                       <PlusTwo />
                     </span>
@@ -80,7 +92,7 @@ const TrendingSpecialPrd = () => {
                       <h3 className="tp-special-hotspot-title">Skincare Product</h3>
                       <p>Lorem ipsum dolor sit amet consectetur.</p>
                     </div>
-                  </div>
+                  </div> */}
 
                 </div>
               </div>
@@ -88,8 +100,8 @@ const TrendingSpecialPrd = () => {
             <div className="col-xl-7 col-md-6">
               <div className="tp-special-wrapper grey-bg-9 pt-85 pb-35">
                 <div className="tp-section-title-wrapper-3 mb-40 text-center">
-                  <span className="tp-section-title-pre-3">Trending This Week’s</span>
-                  <h3 className="tp-section-title-3">Special products</h3>
+                  <span className="tp-section-title-pre-3">Produit du jour</span>
+                  <h3 className="tp-section-title-3">Juste pour vous</h3>
                 </div>
                 <div className="tp-special-slider ">
                   <div className="row gx-0 justify-content-center">

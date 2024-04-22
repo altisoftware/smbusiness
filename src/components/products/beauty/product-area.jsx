@@ -39,14 +39,14 @@ const ProductArea = () => {
           <div className="row align-items-end">
             <div className="col-lg-6 col-md-8">
               <div className="tp-section-title-wrapper-3 mb-55">
-                <span className="tp-section-title-pre-3">Shop by Category</span>
-                <h3 className="tp-section-title-3">Best sellers in beauty</h3>
+                <span className="tp-section-title-pre-3">Articles phare</span>
+                <h3 className="tp-section-title-3">Santé et Bien être</h3>
               </div>
             </div>
             <div className="col-lg-6 col-md-4">
               <div className="tp-product-more-3 text-md-end mb-65">
                 <Link href="/shop" className="tp-btn">
-                  Shop All Products
+                  Tout le catalogue
                   {" "}<ArrowRightSmTwo />
                 </Link>
               </div>

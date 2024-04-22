@@ -86,7 +86,7 @@ const BeautyBanner = () => {
                 <div className="row align-items-center">
                   <div className="col-xl-6 col-lg-6 col-md-8">
                     <div className="tp-slider-content-3">
-                      <span>SMBusiness</span>
+                      <span>SMBstore.</span>
                       <h3 className="tp-slider-title-3">
                         Sublimez votre bien être
                       </h3>

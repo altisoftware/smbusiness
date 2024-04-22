@@ -4,23 +4,13 @@ import { Delivery, Discount, Refund, Support } from '@/svg';
 export const feature_data = [
   {
     icon: <Delivery />,
-    title: 'Free Delivery',
-    subtitle: 'Orders from all item'
-  },
-  {
-    icon: <Refund />,
-    title: 'Return & Refund',
-    subtitle: 'Money back guarantee'
-  },
-  {
-    icon: <Discount />,
-    title: 'Member Discount',
-    subtitle: 'Onevery order over $140.00'
+    title: 'Livraison',
+    subtitle: 'Commandes de n\'importe quel article'
   },
   {
     icon: <Support />,
     title: 'Support 24/7',
-    subtitle: 'Contact us 24 hours a day'
+    subtitle: 'Contactez-nous 24 heures sur 24'
   },
 ]
 
@@ -32,7 +22,7 @@ const FeatureAreaTwo = () => {
         <div className="tp-feature-inner-2">
           <div className="row align-items-center">
             {feature_data.map((item, i) => (
-              <div key={i} className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+              <div key={i} className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                 <div className="tp-feature-item-2 d-flex align-items-start mb-40">
                   <div className="tp-feature-icon-2 mr-10">
                     <span>

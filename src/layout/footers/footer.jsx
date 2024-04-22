@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 // internal
-import logo from '@assets/img/logo/logo.svg';
+import logo from '@assets/img/logo/logo.png';
 import pay from '@assets/img/footer/footer-pay.png';
 import social_data from '@/data/social-data';
 import { Email, Location } from '@/svg';
@@ -20,7 +20,7 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                   <div className="tp-footer-widget-content">
                     <div className="tp-footer-logo">
                       <Link href="/">
-                        <Image src={logo} alt="logo" />
+                        <Image height={65} src={logo} alt="logo" />
                       </Link>
                     </div>
                     <p className="tp-footer-desc">Des produits naturel, de qualité pour votre bien être</p>
@@ -78,7 +78,7 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                           </span>
                         </div>
                         <div className="tp-footer-contact-content">
-                          <p><a href="mailto:shofy@support.com">contact@smbstoreafrica.com</a></p>
+                          <p><a href="mailto:contact@smbstoreafrica.com">contact@smbstoreafrica.com</a></p>
                         </div>
                       </div>
                       <div className="tp-footer-contact-item d-flex align-items-start">
@@ -110,11 +110,11 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                   </div>
                 </div>
                 <div className="col-md-6">
-                  <div className="tp-footer-payment text-md-end">
+                  {/* <div className="tp-footer-payment text-md-end">
                     <p>
                       <Image src={pay} alt="pay" />
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

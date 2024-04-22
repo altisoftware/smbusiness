@@ -55,14 +55,14 @@ const BeautyCategory = () => {
               </a>
             </h3>
             <span className="tp-categroy-ammount-3">
-              {item.products.length} Products
+              {item.products.length} Articles
             </span>
             <div className="tp-category-btn-3">
               <a
                 onClick={() => handleCategoryRoute(item.parent)}
                 className="cursor-pointer tp-link-btn tp-link-btn-2"
               >
-                View Now
+                Afficher Maintenant
                 <ArrowRightSm />
               </a>
             </div>
@@ -79,15 +79,15 @@ const BeautyCategory = () => {
             <div className="col-lg-6 col-md-8">
               <div className="tp-section-title-wrapper-3 mb-45">
                 <span className="tp-section-title-pre-3">
-                  Product Collection
+                  Catalogue
                 </span>
-                <h3 className="tp-section-title-3">Discover our products</h3>
+                <h3 className="tp-section-title-3">Découvrez nos produits</h3>
               </div>
             </div>
             <div className="col-lg-6 col-md-4">
               <div className="tp-category-more-3 text-md-end mb-55">
                 <Link href="/shop" className="tp-btn">
-                  Shop All Products <ArrowRightSmTwo />
+                  Voir tout les produits <ArrowRightSmTwo />
                 </Link>
               </div>
             </div>

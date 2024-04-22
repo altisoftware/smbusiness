@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 // internal
 import Menus from './header-com/menus';
-import logo from '@assets/img/logo/logo.svg';
+import logo from '@assets/img/logo/logo.png';
 import useSticky from '@/hooks/use-sticky';
 import useCartInfo from '@/hooks/use-cart-info';
 import { openCartMini } from '@/redux/features/cartSlice';
@@ -62,7 +62,7 @@ const HeaderTwo = ({ style_2 = false }) => {
                   <div className="col-xl-2 col-lg-5 col-md-5 col-sm-4 col-6">
                     <div className="logo">
                       <Link href="/">
-                        <Image src={logo} alt="logo" priority />
+                        <Image height={60} src={logo} alt="logo" priority />
                       </Link>
                     </div>
                   </div>
@@ -81,13 +81,13 @@ const HeaderTwo = ({ style_2 = false }) => {
                             onChange={(e) => setSearchText(e.target.value)}
                             value={searchText}
                             type="text"
-                            placeholder="Search for Products..." />
+                            placeholder="Rechercher un article..." />
                           <button type="submit">
                             <Search />
                           </button>
                         </form>
                       </div>
-                      <div className="tp-header-action d-flex align-items-center ml-30">
+                      {/* <div className="tp-header-action d-flex align-items-center ml-30">
                         <div className="tp-header-action-item d-none d-lg-block">
                           <Link href="/compare" className="tp-header-action-btn">
                             <Compare />
@@ -110,7 +110,7 @@ const HeaderTwo = ({ style_2 = false }) => {
                             <Menu />
                           </button>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

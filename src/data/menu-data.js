@@ -57,12 +57,12 @@ const menu_data = [
     title: 'Coupons',
     link: '/coupon',
   }, */
-  {
+  /* {
     id: 5,
     sub_menu: false,
     title: 'Témoignages',
     link: '/blog'
-  },
+  }, */
   {
     id: 6,
     single_link: true,
