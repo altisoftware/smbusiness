@@ -50,7 +50,7 @@ const HeaderThree = () => {
                         <Search />
                       </button>
                     </div>
-                    <div className="tp-header-action-item d-none d-sm-block">
+                    {/* <div className="tp-header-action-item d-none d-sm-block">
                       <Link href="/wishlist" className="tp-header-action-btn">
                         <Wishlist />
                         <span className="tp-header-action-badge">{wishlist.length}</span>
@@ -61,7 +61,7 @@ const HeaderThree = () => {
                         <CartTwo />
                         <span className="tp-header-action-badge">{quantity}</span>
                       </button>
-                    </div>
+                    </div> */}
                     <div className="tp-header-action-item d-lg-none">
                       <button onClick={() => setIsCanvasOpen(true)} type="button" className="tp-header-action-btn tp-offcanvas-open-btn">
                         <Menu />
