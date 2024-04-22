@@ -12,7 +12,7 @@ import { add_to_compare } from "@/redux/features/compareSlice";
 
 const ProductItem = ({ product, style_2 = false }) => {
   const { _id, img, category, title, reviews, price, discount, tags, status } = product || {};
-  const [ratingVal, setRatingVal] = useState(0);
+  const [ratingVal, setRatingVal] = useState(4);
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
   const isAddedToCart = cart_products.some((prd) => prd._id === _id);
@@ -26,7 +26,11 @@ const ProductItem = ({ product, style_2 = false }) => {
         reviews.length;
       setRatingVal(rating);
     } else {
-      setRatingVal(0);
+      const randomOne = Math.round(Math.random() * 2) + 2;
+      const randomTwo = Math.round(Math.random() * 2) + 1;
+      let sum = randomOne + randomTwo
+      sum = sum > 5 ? 5 : sum
+      setRatingVal(sum);
     }
   }, [reviews]);
 
@@ -44,6 +48,36 @@ const ProductItem = ({ product, style_2 = false }) => {
     dispatch(add_to_compare(prd));
   };
 
+  const renderAddToCart = (added) => {
+    return (
+      <>
+        {added ? (
+          <Link
+            href="/cart"
+            className={`tp-product-action-btn-2 ${added ? 'active' : ''} tp-product-add-cart-btn`}
+          >
+            <Cart />
+            <span className="tp-product-tooltip tp-product-tooltip-right">
+              Voir le panier
+            </span>
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={() => handleAddProduct(product)}
+            className={`tp-product-action-btn-2 ${added ? 'active' : ''} tp-product-add-cart-btn`}
+            disabled={status === 'out-of-stock'}
+          >
+            <Cart />
+            <span className="tp-product-tooltip tp-product-tooltip-right">
+              Ajouter au panier
+            </span>
+          </button>
+        )}
+      </>
+    )
+  }
+
 
   return (
     <div className={`tp-product-item-2 ${style_2 ? "" : "mb-40"}`}>
@@ -57,55 +91,33 @@ const ProductItem = ({ product, style_2 = false }) => {
           />
         </Link>
         <div className="tp-product-badge">
-          {status === 'out-of-stock' && <span className="product-hot">out-stock</span>}
+          {status === 'out-of-stock' && <span className="product-hot">Stock épuisé</span>}
         </div>
         {/* product action */}
         <div className="tp-product-action-2 tp-product-action-blackStyle">
           <div className="tp-product-action-item-2 d-flex flex-column">
-            {isAddedToCart ? (
-              <Link
-                href="/cart"
-                className={`tp-product-action-btn-2 ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn`}
-              >
-                <Cart />
-                <span className="tp-product-tooltip tp-product-tooltip-right">
-                  View Cart
-                </span>
-              </Link>
-            ) : (
-              <button
-                type="button"
-                onClick={() => handleAddProduct(product)}
-                className={`tp-product-action-btn-2 ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn`}
-                disabled={status === 'out-of-stock'}
-              >
-                <Cart />
-                <span className="tp-product-tooltip tp-product-tooltip-right">
-                  Add to Cart
-                </span>
-              </button>
-            )}
+
             <button
               onClick={() => dispatch(handleProductModal(product))}
               className="tp-product-action-btn-2 tp-product-quick-view-btn"
             >
               <QuickView />
               <span className="tp-product-tooltip tp-product-tooltip-right">
-                Quick View
+                Appercu
               </span>
             </button>
-            <button disabled={status === 'out-of-stock'} onClick={() => handleWishlistProduct(product)} className={`tp-product-action-btn-2 ${isAddedToWishlist ? 'active' : ''} tp-product-add-to-wishlist-btn`}>
+            {/* <button disabled={status === 'out-of-stock'} onClick={() => handleWishlistProduct(product)} className={`tp-product-action-btn-2 ${isAddedToWishlist ? 'active' : ''} tp-product-add-to-wishlist-btn`}>
               <Wishlist />
               <span className="tp-product-tooltip tp-product-tooltip-right">
                 Add To Wishlist
               </span>
-            </button>
-            <button disabled={status === 'out-of-stock'} onClick={() => handleCompareProduct(product)} className="tp-product-action-btn-2 tp-product-add-to-compare-btn">
+            </button> */}
+            {/* <button disabled={status === 'out-of-stock'} onClick={() => handleCompareProduct(product)} className="tp-product-action-btn-2 tp-product-add-to-compare-btn">
               <CompareThree />
               <span className="tp-product-tooltip tp-product-tooltip-right">
                 Add To Compare
               </span>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

@@ -12,6 +12,14 @@ import { add_to_wishlist } from '@/redux/features/wishlist-slice';
 import { add_to_compare } from '@/redux/features/compareSlice';
 import { handleModalClose } from '@/redux/features/productModalSlice';
 
+const STATUS_KEYS = [{
+  "name": "on-sale",
+  "label": "Epuisé"
+}, {
+  "name": "in-stock",
+  "label": "Disponible"
+}];
+
 const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBottom = false }) => {
   const { sku, img, title, imageURLs, category, description, discount, price, status, reviews, tags, offerDate } = productItem || {};
   const [ratingVal, setRatingVal] = useState(0);
@@ -25,7 +33,7 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
         reviews.length;
       setRatingVal(rating);
     } else {
-      setRatingVal(0);
+      setRatingVal(4);
     }
   }, [reviews]);
 
@@ -44,6 +52,8 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
     dispatch(add_to_compare(prd));
   };
 
+  const statusRelated = STATUS_KEYS.find(stat => stat.name == status)
+
   return (
     <div className="tp-product-details-wrapper">
       <div className="tp-product-details-category">
@@ -54,19 +64,19 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
       {/* inventory details */}
       <div className="tp-product-details-inventory d-flex align-items-center mb-10">
         <div className="tp-product-details-stock mb-10">
-          <span>{status}</span>
+          <span>{statusRelated.label}</span>
         </div>
         <div className="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
           <div className="tp-product-details-rating">
             <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
           </div>
           <div className="tp-product-details-reviews">
-            <span>({reviews && reviews.length > 0 ? reviews.length : 0} Review)</span>
+            <span>({reviews && reviews.length > 0 ? reviews.length : 0} Témoignages)</span>
           </div>
         </div>
       </div>
       <p>{textMore ? description : `${description.substring(0, 100)}...`}
-        <span onClick={() => setTextMore(!textMore)}>{textMore ? 'See less' : 'See more'}</span>
+        <span onClick={() => setTextMore(!textMore)}>{textMore ? ' Afficher moins' : ' En savoir plus'}</span>
       </p>
 
       {/* price */}
@@ -84,7 +94,7 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
       </div>
 
       {/* variations */}
-      {imageURLs.some(item => item?.color && item?.color?.name) && <div className="tp-product-details-variation">
+      {/* {imageURLs.some(item => item?.color && item?.color?.name) && <div className="tp-product-details-variation">
         <div className="tp-product-details-variation-item">
           <h4 className="tp-product-details-variation-title">Color :</h4>
           <div className="tp-product-details-variation-list">
@@ -104,7 +114,7 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
             ))}
           </div>
         </div>
-      </div>}
+      </div>} */}
 
       {/* if ProductDetailsCountdown true start */}
       {offerDate?.endDate && <ProductDetailsCountdown offerExpiryTime={offerDate?.endDate} />}
@@ -117,28 +127,31 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
           {/* product quantity */}
           <ProductQuantity />
           {/* product quantity */}
-          <div className="tp-product-details-add-to-cart mb-15 w-100">
+          {/* <div className="tp-product-details-add-to-cart mb-15 w-100">
             <button onClick={() => handleAddProduct(productItem)} disabled={status === 'out-of-stock'} className="tp-product-details-add-to-cart-btn w-100">Add To Cart</button>
-          </div>
+          </div> */}
         </div>
-        <Link href="/cart" onClick={() => dispatch(handleModalClose())}>
+        {/* <Link href="/cart" onClick={() => dispatch(handleModalClose())}>
           <button className="tp-product-details-buy-now-btn w-100">Buy Now</button>
+        </Link> */}
+        <Link href="#" onClick={() => dispatch(handleModalClose())}>
+          <button className="tp-product-details-buy-now-btn w-100">Contactez-nous</button>
         </Link>
       </div>
       {/* product-details-action-sm start */}
       <div className="tp-product-details-action-sm">
-        <button disabled={status === 'out-of-stock'} onClick={() => handleCompareProduct(productItem)} type="button" className="tp-product-details-action-sm-btn">
+       {/*  <button disabled={status === 'out-of-stock'} onClick={() => handleCompareProduct(productItem)} type="button" className="tp-product-details-action-sm-btn">
           <CompareTwo />
           Compare
         </button>
         <button disabled={status === 'out-of-stock'} onClick={() => handleWishlistProduct(productItem)} type="button" className="tp-product-details-action-sm-btn">
           <WishlistTwo />
           Add Wishlist
-        </button>
-        <button type="button" className="tp-product-details-action-sm-btn">
+        </button> */}
+        {/* <button type="button" className="tp-product-details-action-sm-btn">
           <AskQuestion />
-          Ask a question
-        </button>
+          
+        </button> */}
       </div>
       {/* product-details-action-sm end */}
 

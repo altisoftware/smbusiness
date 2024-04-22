@@ -76,21 +76,21 @@ function ProfileSetting({active,handleActive}) {
         className="tp-header-setting-toggle"
         id="tp-header-setting-toggle"
       >
-        Setting
+        Paramètres
       </span>
       <ul className={active === 'setting' ? "tp-setting-list-open" : ""}>
         <li>
-          <Link href="/profile">My Profile</Link>
+          <Link href="/profile">Mon Profil</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/wishlist">Wishlist</Link>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <Link href="/cart">Cart</Link>
-        </li>
+        </li> */}
         <li>
-          {!user?.name &&<Link href="/login" className="cursor-pointer">Login</Link>}
-          {user?.name &&<a onClick={handleLogout} className="cursor-pointer">Logout</a>}
+          {!user?.name &&<Link href="/login" className="cursor-pointer">Se connecter</Link>}
+          {user?.name &&<a onClick={handleLogout} className="cursor-pointer">Se déconnecter</a>}
         </li>
       </ul>
     </div>
@@ -110,8 +110,8 @@ const HeaderTopRight = () => {
   }
   return (
     <div className="tp-header-top-menu d-flex align-items-center justify-content-end">
-      <Language active={active} handleActive={handleActive} />
-      <Currency active={active} handleActive={handleActive} />
+      {/* <Language active={active} handleActive={handleActive} />
+      <Currency active={active} handleActive={handleActive} /> */}
       <ProfileSetting active={active} handleActive={handleActive} />
     </div>
   );

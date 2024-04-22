@@ -12,11 +12,11 @@ const ShopTopRight = ({selectHandleFilter}) => {
       <div className="tp-shop-top-select">
         <NiceSelect
           options={[
-            { value: "Default Sorting", text: "Default Sorting" },
-            { value: "Low to High", text: "Low to High" },
-            { value: "High to Low", text: "High to Low" },
-            { value: "New Added", text: "New Added" },
-            { value: "On Sale", text: "On Sale" },
+            { value: "Default Sorting", text: "Tri par défaut" },
+            { value: "Low to High", text: "Prix le moins élevé au plus" },
+            { value: "High to Low", text: "Prix le plus élevé au moins" },
+            { value: "New Added", text: "Nouveau Ajout" },
+            { value: "On Sale", text: "Epuisé" },
           ]}
           defaultCurrent={0}
           onChange={selectHandleFilter}

@@ -44,7 +44,7 @@ const DetailsThumbWrapper = ({
                 height={imgHeight}
               />
               <div className="tp-product-badge">
-                {status === 'out-of-stock' && <span className="product-hot">out-stock</span>}
+                {status === 'out-of-stock' && <span className="product-hot">Stock épuisé</span>}
               </div>
               {videoId && (
                 <div

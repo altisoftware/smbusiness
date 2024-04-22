@@ -14,8 +14,16 @@ const ProfilePage = () => {
   const router = useRouter();
   const {data: orderData, isError, isLoading, } = useGetUserOrdersQuery();
   useEffect(() => {
-    const isAuthenticate = Cookies.get("userInfo");
-    if (!isAuthenticate) {
+    const localAuth = Cookies.get("userInfo");
+    if (!localAuth) {
+      router.push("/login");
+    }
+    try {
+      const auth = JSON.parse(localAuth);
+      if(auth && !auth.accessToken){
+        router.push("/login");
+      }
+    } catch (error) {
       router.push("/login");
     }
   }, [router]);

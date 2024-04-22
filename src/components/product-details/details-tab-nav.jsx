@@ -46,8 +46,8 @@ const DetailsTabNav = ({ product }) => {
         <nav>
           <div className="nav nav-tabs justify-content-center p-relative tp-product-tab" id="navPresentationTab" role="tablist">
             <NavItem active={true} linkRef={activeRef} id="desc" title="Description" />
-            <NavItem id="additional" title="Additional information" />
-            <NavItem id="review" title={`Reviews (${reviews.length})`} />
+            <NavItem id="additional" title="Informations additionnelles" />
+            <NavItem id="review" title={`Témoignages (${reviews.length})`} />
 
             <span ref={marker} id="productTabMarker" className="tp-product-details-tab-line"></span>
           </div>
@@ -100,9 +100,9 @@ const DetailsTabNav = ({ product }) => {
 
                     {/* reviews */}
                     <div className="tp-product-details-review-list pr-110">
-                      <h3 className="tp-product-details-review-title">Rating & Review</h3>
+                      <h3 className="tp-product-details-review-title">Notes et Témoignages</h3>
                       {reviews.length === 0 && <h3 className="tp-product-details-review-title">
-                        There are no reviews yet.
+                        Aucun commentaire
                       </h3>
                       }
                       {reviews.length > 0 && reviews.map(item => (
@@ -113,8 +113,8 @@ const DetailsTabNav = ({ product }) => {
                 </div>
                 <div className="col-lg-6">
                   <div className="tp-product-details-review-form">
-                    <h3 className="tp-product-details-review-form-title">Review this product</h3>
-                    <p>Your email address will not be published. Required fields are marked *</p>
+                    <h3 className="tp-product-details-review-form-title">Commentez ce produit</h3>
+                    <p>Votre adresse électronique ne sera pas publiée. Les champs obligatoires sont marqués *</p>
                     {/* form start */}
                     <ReviewForm product_id={_id} />
                     {/* form end */}

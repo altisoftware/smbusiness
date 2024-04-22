@@ -12,7 +12,7 @@ const BeautyCategory = () => {
     data: categories,
     isLoading,
     isError,
-  } = useGetProductTypeCategoryQuery("beauty");
+  } = useGetProductTypeCategoryQuery("cosmetics");
 
   // handle category route
   const handleCategoryRoute = (title) => {

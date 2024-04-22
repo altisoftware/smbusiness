@@ -65,50 +65,50 @@ const ReviewForm = ({product_id}) => {
         <div className="tp-product-details-review-input-box">
           <div className="tp-product-details-review-input">
             <textarea
-            {...register("comment", { required: `Comment is required!` })}
+            {...register("comment", { required: `Le commentaire est requis!` })}
               id="comment"
               name="comment"
-              placeholder="Write your review here..."
+              placeholder="Ecrivez votre témoignage ici..."
             />
           </div>
           <div className="tp-product-details-review-input-title">
-            <label htmlFor="msg">Your Review</label>
+            <label htmlFor="msg">Votre témoignages</label>
           </div>
           <ErrorMsg msg={errors.name?.comment} />
         </div>
         <div className="tp-product-details-review-input-box">
           <div className="tp-product-details-review-input">
             <input
-            {...register("name", { required: `Name is required!` })}
+            {...register("name", { required: `Le nom est requis!` })}
               name="name"
               id="name"
               type="text"
-              placeholder="Shahnewaz Sakil"
+              placeholder="Ex. Raphael Durand"
             />
           </div>
           <div className="tp-product-details-review-input-title">
-            <label htmlFor="name">Your Name</label>
+            <label htmlFor="name">Votre Nom</label>
           </div>
           <ErrorMsg msg={errors.name?.name} />
         </div>
         <div className="tp-product-details-review-input-box">
           <div className="tp-product-details-review-input">
             <input
-            {...register("email", { required: `Name is required!` })}
+            {...register("email", { required: `L'email est requis!` })}
               name="email"
               id="email"
               type="email"
-              placeholder="shofy@mail.com"
+              placeholder="Ex. joh@doe.com"
             />
           </div>
           <div className="tp-product-details-review-input-title">
-            <label htmlFor="email">Your Email</label>
+            <label htmlFor="email">Votre Email</label>
           </div>
           <ErrorMsg msg={errors.name?.email} />
         </div>
       </div>
       <div className="tp-product-details-review-btn-wrapper">
-        <button type="submit" className="tp-product-details-review-btn">Submit</button>
+        <button type="submit" className="tp-product-details-review-btn">Envoyer</button>
       </div>
     </form>
   );

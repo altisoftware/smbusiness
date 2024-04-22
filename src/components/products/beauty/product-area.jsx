@@ -9,7 +9,7 @@ import { HomeThreePrdLoader } from '@/components/loader';
 
 const ProductArea = () => {
   const { data: products, isError, isLoading } =
-    useGetProductTypeQuery({ type: 'beauty', query: `topSellers=true` });
+    useGetProductTypeQuery({ type: 'cosmetics', query: `topSellers=true` });
   // decide what to render
   let content = null;
 

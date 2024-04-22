@@ -6,13 +6,19 @@ import { handleFilterSidebarClose } from "@/redux/features/shop-filter-slice";
 const StatusFilter = ({setCurrPage,shop_right=false}) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const status = ["On sale", "In Stock"];
+  const status = [{
+    "name": "On sale",
+    "label": "Epuisé"
+  }, {
+    "name": "In Stock",
+    "label": "Disponible"
+  }];
 
   // handle status route 
   const handleStatusRoute = (status) => {
     setCurrPage(1)
     router.push(
-      `/${shop_right?'shop-right-sidebar':'shop'}?status=${status
+      `/${shop_right?'shop-right-sidebar':'shop'}?status=${status.name
         .toLowerCase()
         .replace("&", "")
         .split(" ")
@@ -22,7 +28,7 @@ const StatusFilter = ({setCurrPage,shop_right=false}) => {
   }
   return (
     <div className="tp-shop-widget mb-50">
-      <h3 className="tp-shop-widget-title">Product Status</h3>
+      <h3 className="tp-shop-widget-title">Statut des produits</h3>
       <div className="tp-shop-widget-content">
         <div className="tp-shop-widget-checkbox">
           <ul className="filter-items filter-checkbox">
@@ -33,7 +39,7 @@ const StatusFilter = ({setCurrPage,shop_right=false}) => {
                   type="checkbox"
                   checked={
                     router.query.status ===
-                    s.toLowerCase().replace("&", "").split(" ").join("-")
+                    s.name.toLowerCase().replace("&", "").split(" ").join("-")
                       ? "checked"
                       : false
                   }
@@ -43,7 +49,7 @@ const StatusFilter = ({setCurrPage,shop_right=false}) => {
                   onClick={() => handleStatusRoute(s)}
                   htmlFor={s}
                 >
-                  {s}
+                  {s.label}
                 </label>
               </li>
             ))}
